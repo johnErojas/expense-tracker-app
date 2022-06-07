@@ -1,14 +1,21 @@
-import {StyleSheet, View,Text} from "react-native";
+import {StyleSheet, View, Text} from "react-native";
 import ExpensesOutput from "../components/expensesOuput/ExpensesOutput";
 import {ExpensesContext} from "../store/expenses-context";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {getDateMinusDays} from "../utils/date";
+import {apiGetExpenses} from "../utils/api";
 
 function RecentExpensesScreen() {
     const expensesCtx = useContext(ExpensesContext);
+
+    useEffect( () => {
+        apiGetExpenses();
+    }, [apiGetExpenses]);
+
+
     const recent = expensesCtx.expenses.filter(expense => {
         const today = new Date();
-        const the7DaysAgo = getDateMinusDays(today,7);
+        const the7DaysAgo = getDateMinusDays(today, 7);
         return expense.date > the7DaysAgo;
     })
     return <ExpensesOutput

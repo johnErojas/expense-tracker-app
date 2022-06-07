@@ -9,7 +9,7 @@ import ManageExpenseScreen from "./screens/ManageExpenseScreen";
 import AllExpensesScreen from "./screens/AllExpensesScreen";
 import RecentExpensesScreen from "./screens/RecentExpensesScreen";
 import {GlobalStyles} from "./constants/AppConstants";
-import {FaIcon, IconLight, IconRegular} from "./components/fontawesome/Icons";
+import {FaIcon} from "./components/fontawesome/Icons";
 import {Ico} from "./components/fontawesome/IconNames";
 import IconButton from "./components/UI/IconButton";
 import ExpensesCtxProvider from "./store/expenses-context";
